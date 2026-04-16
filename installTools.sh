@@ -84,3 +84,30 @@ cd /home/user/tmp
 wget https://github.com/blacktop/ipsw/releases/latest/download/ipsw_$(curl -s https://api.github.com/repos/blacktop/ipsw/releases/latest | grep -o '"tag_name": "[^"]*' | cut -d'"' -f4 | tr -d 'v')_linux_x86_64.tar.gz
 tar -xzf ipsw_*.tar.gz
 sudo mv ipsw /usr/local/bin/
+
+#MacOS Unified Logs for Linux
+sudo apt install -y cargo
+cd /home/user/tmp
+git clone https://github.com/mandiant/macos-UnifiedLogs
+cd macos-UnifiedLogs/examples/unifiedlog_iterator/
+cargo build --release
+sudo cp ../target/release/unifiedlog_iterator /usr/local/bin/
+
+# Sysdiagnose Analysis Framework (SAF)
+cd /home/user/py-venvs
+git clone https://github.com/EC-DIGIT-CSIRC/sysdiagnose.git
+cd sysdiagnose
+python3 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install .
+deactivate
+
+
+
+#TODO:
+#- [ ] Jadx
+#- [ ] Android studio
+#- [ ] Adb
+#- [ ] Sysdiagnose Analysis Framework (SAF)
+#- [ ] Ilibmobiledevice
