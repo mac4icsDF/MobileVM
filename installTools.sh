@@ -111,14 +111,29 @@ cd FSEventsParser
 git clone https://github.com/dlcowen/FSEventsParser.git
 cd FSEventsParser
 pip install --upgrade pip
-pip install -r requirements.txt
 deactivate
 
 # libimobiledevice
 printf "Installing libimobiledevice...\n"
-sudo apt install -y build-essential pkg-config checkinstall git autoconf automake libtool-bin libplist-dev libusbmuxd-dev libimobiledevice-glue-dev libssl-dev usbmuxd
+sudo apt install -y git build-essential autoconf automake libtool libtool-bin pkg-config cmake libplist-dev libusbmuxd-dev libssl-dev libcurl4-openssl-dev libzip-deb
 mkdir /home/user/tmp
 cd /home/user/tmp
+git clone https://github.com/libimobiledevice/libtatsu.git
+cd libtatsu
+./autogen.sh
+make -j$(nproc)
+sudo make install
+sudo ldconfig
+cd ..
+
+git clone https://github.com/libimobiledevice/libimobiledevice-glue.git
+cd libimobiledevice-glue
+./autogen.sh
+make -j$(nproc)
+sudo make install
+sudo ldconfig
+cd ..
+
 git clone https://github.com/libimobiledevice/libimobiledevice.git
 cd libimobiledevice
 ./autogen.sh
@@ -131,7 +146,7 @@ sudo ldconfig
 printf "Installing log2timeline...\n"
 sudo apt install -y build-essential libffi-dev libssl-dev libbz2-dev liblzma-dev zlib1g-dev libsqlite3-dev libyaml-dev libxml2-dev libxslt1-dev libfuse-dev git
 cd /home/user/py-venvs
-python -m venv plaso
+python3 -m venv plaso
 . plaso/bin/activate
 pip install --upgrade pip setuptools wheel
 pip install plaso
