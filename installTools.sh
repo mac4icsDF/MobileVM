@@ -144,7 +144,7 @@ sudo ldconfig
 
 #plaso log2timeline
 printf "Installing log2timeline...\n"
-sudo apt install -y build-essential libffi-dev libssl-dev libbz2-dev liblzma-dev zlib1g-dev libsqlite3-dev libyaml-dev libxml2-dev libxslt1-dev libfuse-dev git
+sudo apt install -y build-essential libffi-dev libssl-dev libbz2-dev liblzma-dev zlib1g-dev libsqlite3-dev libyaml-dev libxml2-dev libxslt1-dev libfuse-dev git pkg-config autoconf automake libtool
 cd /home/user/py-venvs
 python3 -m venv plaso
 . plaso/bin/activate
