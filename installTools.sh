@@ -53,7 +53,7 @@ sudo apt install -y libplist-utils
 #python venv + pip
 printf "Installing venv...\n"
 printf "Installing pip...\n"
-sudo apt install -y python3.13-venv python3-pip python3-dev  
+sudo apt install -y python3-venv python3-pip python3-dev  
 
 #mvt
 printf "Installing MVT...\n"
