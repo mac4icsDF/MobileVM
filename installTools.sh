@@ -115,7 +115,7 @@ deactivate
 
 # libimobiledevice
 printf "Installing libimobiledevice...\n"
-sudo apt install -y git build-essential autoconf automake libtool libtool-bin pkg-config cmake libplist-dev libusbmuxd-dev libssl-dev libcurl4-openssl-dev libzip-deb
+sudo apt install -y git build-essential autoconf automake libtool libtool-bin pkg-config cmake libplist-dev libusbmuxd-dev libssl-dev libcurl4-openssl-dev libzip-dev
 mkdir /home/user/tmp
 cd /home/user/tmp
 git clone https://github.com/libimobiledevice/libtatsu.git
