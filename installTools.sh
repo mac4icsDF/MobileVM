@@ -162,8 +162,8 @@ sudo mv ipsw /usr/local/bin/
 
 #MacOS Unified Logs for Linux
 printf "Installing MacOS Unified Logs for Linux...\n"
-sudo apt install -y cargo
 cd /home/user/tmp
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 git clone https://github.com/mandiant/macos-UnifiedLogs
 cd macos-UnifiedLogs/examples/unifiedlog_iterator/
 cargo build --release
